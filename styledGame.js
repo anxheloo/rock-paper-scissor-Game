@@ -110,3 +110,41 @@ function displayOnScreenInsteadOfAlert(result, playerMove, computerMove) {
     ".results"
   ).innerText = `Wins: ${score.wins}, Looses: ${score.looses}, Equals: ${score.equals}`;
 }
+
+// ADD THE AUTOPLAY FEATURE, AND STOP AUTOPLAY
+//-------------------------------------------------
+
+let intervalId; // Variable to store the interval ID
+const autoPlayButton = document.querySelector(".autoPlayButton");
+
+// Function to automatically play the game every 3 seconds
+function autoPlay() {
+  // Call playGame with a random move
+  const moves = ["rock", "paper", "scissors"];
+  const randomMove = moves[Math.floor(Math.random() * moves.length)];
+  playGame(randomMove);
+}
+
+// Function to start auto play
+function startAutoPlay() {
+  intervalId = setInterval(autoPlay, 1000);
+  // console.log("This is internal id: " + intervalId);
+}
+
+// Function to stop auto play
+function stopAutoPlay() {
+  clearInterval(intervalId);
+  // console.log(intervalId);
+}
+
+autoPlayButton.addEventListener("click", () => {
+  if (intervalId) {
+    // Auto play is already running, stop it
+    stopAutoPlay();
+    autoPlayButton.textContent = "Auto Play";
+  } else {
+    // Auto play is not running, start it
+    startAutoPlay();
+    autoPlayButton.textContent = "Stop Auto Play";
+  }
+});
