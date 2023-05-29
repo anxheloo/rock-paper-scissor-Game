@@ -148,3 +148,14 @@ autoPlayButton.addEventListener("click", () => {
     autoPlayButton.textContent = "Stop Auto Play";
   }
 });
+
+// add event listener for body when we press a key down
+document.body.addEventListener("keydown", (event) => {
+  if (event.key === "r") {
+    playGame("rock");
+  } else if (event.key === "p") {
+    playGame("paper");
+  } else if (event.key === "s") {
+    playGame("scissors");
+  }
+});
