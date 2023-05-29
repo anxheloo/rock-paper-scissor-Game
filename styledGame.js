@@ -79,7 +79,9 @@ function playGame(playerMove) {
     displayOnScreenInsteadOfAlert(result, playerMove, computerMove);
   }
 
-  localStorage.setItem("score", JSON.stringify(score));
+  console.log(score);
+  console.log(JSON.stringify(score)); // Print the JSON object
+  localStorage.setItem("score", JSON.stringify(score)); //  store the score object in the browser's local storage
 }
 
 //---------------------reset function-------------------------------
@@ -108,26 +110,3 @@ function displayOnScreenInsteadOfAlert(result, playerMove, computerMove) {
     ".results"
   ).innerText = `Wins: ${score.wins}, Looses: ${score.looses}, Equals: ${score.equals}`;
 }
-
-//-----------------------display text on paragraph elements-------------
-// function displayOnScreenInsteadOfAlert(result, playerMove, computerMove) {
-//   document.querySelector(".winner").innerText = `${result}`;
-//   document.querySelector(".moves").innerHTML = `You ${getPlayerMoveEmoji(
-//     playerMove
-//   )}, computer picked ${computerMove}`;
-//   document.querySelector(
-//     ".results"
-//   ).innerText = `Wins: ${score.wins}, Looses: ${score.looses}, Equals: ${score.equals}`;
-// }
-
-// function getPlayerMoveEmoji(move) {
-//   if (move === "rock") {
-//     return '<img src="rock-emoji.png" class="rock btn" id="rock" />';
-//   } else if (move === "paper") {
-//     return '<img src="paper-emoji.png" class="paper" />';
-//   } else if (move === "scissors") {
-//     return '<img src="scissors-emoji.png" class="scissors" />';
-//   } else {
-//     return "";
-//   }
-// }
